@@ -8,12 +8,22 @@
         body {
             background-color: black;
             color: white;
-            text-align: center;
-            font-size: 15em;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+        #time-display {
+            font-size: 3em;
+            margin: 20px;
+            text-align: right;
         }
     </style>
 </head>
 <body>
+    <div id="time-display"></div>
     <script>
         function updateTime() {
             var now = new Date();
@@ -31,7 +41,7 @@
             
             var dateString = year + '-' + month + '-' + date;
             var timeString = hours + ':' + minutes;
-            document.body.innerHTML = '<p>' + dateString + '<br>' + timeString + '</p>';
+            document.getElementById('time-display').innerHTML = dateString + '<br>' + timeString;
         }
 
         // 初始加载
