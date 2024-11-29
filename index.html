@@ -38,12 +38,11 @@
         function updateTime() {
             var now = new Date();
             var year = now.getFullYear();
-            var month = now.getMonth() + 1; // 月份从 0 开始，所以要加 1
+            var month = now.getMonth() + 1;
             var date = now.getDate();
             var hours = now.getHours();
             var minutes = now.getMinutes();
             
-            // 确保月、日、小时和分钟都是两位数
             month = month < 10 ? '0' + month : month;
             date = date < 10 ? '0' + date : date;
             hours = hours < 10 ? '0' + hours : hours;
@@ -53,6 +52,8 @@
             var timeString = hours + ':' + minutes;
             document.getElementById('time-display').textContent = timeString;
             document.getElementById('date-display').textContent = dateString;
+            
+            document.title = timeString;
         }
 
         // 初始加载
