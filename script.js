@@ -10,7 +10,7 @@ function updateTime() {
     });
     
     // 更新页面标题
-    document.title = `北京时间 ${timeString}`;
+    document.title = ` ${timeString}`;
     
     // 更新页面显示
     document.getElementById('current-time').textContent = timeString;
