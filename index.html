@@ -1,66 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⏰</text></svg>">
-
-    <title>time</title>
-    <style>
-        body {
-            background-color: black;
-            color: white;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-        }
-        #time-display {
-            font-size: 18em;
-            text-align: center;
-
-        }
-        #date-display {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            font-size: 6em;
-        }
-    </style>
+    <title id="page-title">北京时间</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="time-display"></div>
-    <div id="date-display"></div>
-    <script>
-        function updateTime() {
-            var now = new Date();
-            var year = now.getFullYear();
-            var month = now.getMonth() + 1;
-            var date = now.getDate();
-            var hours = now.getHours();
-            var minutes = now.getMinutes();
+    <div class="container">
+        <div class="card time-display">
             
-            month = month < 10 ? '0' + month : month;
-            date = date < 10 ? '0' + date : date;
-            hours = hours < 10 ? '0' + hours : hours;
-            minutes = minutes < 10 ? '0' + minutes : minutes;
-            
-            var dateString = year + '-' + month + '-' + date;
-            var timeString = hours + ':' + minutes;
-            document.getElementById('time-display').textContent = timeString;
-            document.getElementById('date-display').textContent = dateString;
-            
-            document.title =  timeString;
-        }
-
-        // 初始加载
-        updateTime();
-
-        // 每秒更新一次时间
-        setInterval(updateTime, 1000);
-    </script>
+            <div class="time-wrapper">
+                <h1 class="current-time" id="current-time"></h1>
+                <p class="current-date" id="current-date"></p>
+            </div>
+        </div>
+        
+        <div class="card pomodoro-container">
+            <h2>番茄时钟</h2>
+            <div class="timer-display" id="pomodoro-timer">25:00</div>
+            <div class="button-group">
+                <button id="start-pomodoro">开始</button>
+                <button id="pause-pomodoro">暂停</button>
+                <button id="reset-pomodoro" class="reset-btn">重置</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
